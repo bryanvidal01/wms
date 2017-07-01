@@ -1,0 +1,213 @@
+// RESET
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a:hover, a:focus, button, input{
+    text-decoration: none;
+    outline: none;
+}
+
+// END RESET
+
+body{
+	background: #f8f8f8;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+select{
+	appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	border-radius: 0;
+	color: #222;
+	padding: 13px;
+	border: 0;
+	font-weight: 700;
+	font-size: 14px;
+	background-image: url('../images/arrow-select.svg');
+	background-repeat: no-repeat;
+	background-position: calc(100% - 15px);
+	background-size: 10px;
+
+	outline: none;
+}
+
+.button{
+	padding: 13px;
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.button-green{
+	background: #006d6f;
+	border: 0;
+}
+
+.article-vehicule{
+	text-align: center;
+	margin-bottom: 30px;
+	display: block;
+	position: relative;
+	z-index: 3;
+	background: #FFF;
+	padding-bottom: 20px;
+	@include transition(.3s);
+	&:hover{
+		box-shadow: 0 5px 55px #DDD;
+	}
+	.img-vehicule{
+		img{
+			width: 100%;
+		}
+	}
+
+	.category{
+		font-size: 13px;
+		color: #888;
+		font-style: italic;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		li{
+			display: inline-block;
+			&:after{
+				content: '/';
+			}
+
+			&:last-child{
+				&:after{
+					content: '';
+				}
+			}
+			a{
+				color: #888;
+				@include transition(.3s);
+				&:hover{
+					color: #444;
+				}
+			}
+		}
+	}
+
+	.title-vehicule{
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 14px;
+		margin-bottom: 8px;
+		color: #222;
+	}
+	.price{
+		font-size: 14px;
+		color: #444;
+	}
+}
+
+.title-site{
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	margin: 40px 0;
+}
+
+
+
+
+/* Cachons la case à cocher */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+/* on prépare le label */
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative; /* permet de positionner les pseudo-éléments */
+  padding-left: 25px; /* fait un peu d'espace pour notre case à venir */
+  cursor: pointer;    /* affiche un curseur adapté */
+}
+/* Aspect des checkboxes */
+/* :before sert à créer la case à cocher */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left:0; top: 2px;
+  width: 17px; height: 17px; /* dim. de la case */
+  border: 1px solid #DDD;
+  background: #FFF;
+  border-radius: 50%; /* angles arrondis */
+}
+
+/* Aspect général de la coche */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+  top: 4px; left: 2px;
+  font-size: 14px;
+  width: 13px;
+  height: 13px;
+  background: #DDD;
+  border-radius: 50%;
+  transition: all .2s; /* on prévoit une animation */
+}
+/* Aspect si "pas cochée" */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0; /* coche invisible */
+  transform: scale(0); /* mise à l'échelle à 0 */
+}
+/* Aspect si "cochée" */
+[type="checkbox"]:checked + label:after {
+  opacity: 1; /* coche opaque */
+  transform: scale(1); /* mise à l'échelle 1:1 */
+}

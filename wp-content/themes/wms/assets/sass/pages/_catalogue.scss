@@ -1,0 +1,77 @@
+.item-catalogue{
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.container-catalogue{
+    margin-top: 60px;
+
+    .filter{
+        .title-site{
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 30px;
+            letter-spacing: -.05em;
+        }
+    }
+
+    .title-filter{
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .text-checkbox{
+        font-size: 14px;
+        color: #777;
+        font-weight: 100;
+    }
+
+    .child-filter{
+        li{
+            margin: 5px 0;
+            display: block;
+        }
+    }
+}
+
+
+.header-catalogue{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(#000, .6);
+        width: 100%;
+        height: 100%;
+    }
+
+    .text-catalogue{
+        text-transform: uppercase;
+        color: #FFF;
+        text-align: center;
+        position: relative;
+        z-index: 3;
+        font-weight: 100;
+        letter-spacing: -.08em;
+
+        .catalogue-name{
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 3px;
+        }
+    }
+}

@@ -1,21 +1,92 @@
 <?php
 
+// Image sizes
+add_image_size( '1900x900', 1900, 900 );
+add_image_size( '500x300', 500, 300 );
 
-function bbx_theme_setup() {
-	if ( ! isset( $content_width ) ) $content_width = 1200;
-	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'menus' );
-	add_theme_support( 'post-thumbnails' );
-	add_filter( 'show_admin_bar', '__return_false' );
+// POST TYPE
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'vehicule',
+    array(
+      'labels' => array(
+        'name' => __( 'Véhicules' ),
+        'singular_name' => __( 'Véhicule' )
+      ),
+      'public' => true
+    )
+  );
 }
-add_action( 'after_setup_theme', 'bbx_theme_setup' );
+
+// CUSTOM TAXONOMY
+register_taxonomy(
+  'contrat',
+  'vehicule',
+  array(
+    'label' => 'Contrat',
+    'labels' => array(
+    'name' => 'Contrats',
+    'singular_name' => 'Contrat'
+	),
+	'hierarchical' => true
+  )
+);
+
+register_taxonomy(
+  'gamme',
+  'vehicule',
+  array(
+    'label' => 'Gamme',
+    'labels' => array(
+    'name' => 'Gammes',
+    'singular_name' => 'Gamme'
+	),
+	'hierarchical' => true
+  )
+);
+
+register_taxonomy(
+  'carburant',
+  'vehicule',
+  array(
+    'label' => 'Carburant',
+    'labels' => array(
+    'name' => 'Carburants',
+    'singular_name' => 'Carburant'
+	),
+	'hierarchical' => true
+  )
+);
+
+register_taxonomy(
+  'marque',
+  'vehicule',
+  array(
+    'label' => 'Marque',
+    'labels' => array(
+    'name' => 'Marques',
+    'singular_name' => 'Marque'
+	),
+	'hierarchical' => true
+  )
+);
 
 
-function bbx_enqueue_scripts() {
-	$js_directory = get_template_directory_uri() . '/javascript/';
-	wp_register_script( 'global', $js_directory . 'global.js', 'jquery', '1.0' );
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'global' );
+// OPTION PAGE
+
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' => "Configuration"
+	));
 }
-add_action( 'wp_enqueue_scripts', 'bbx_enqueue_scripts' );
 
+
+// Correspondance des pages
+function get_catalogue_link(){
+	$idCatalogue = get_field('catalogue_page', 'option');
+	$urlCatalogue = get_page_link($idCatalogue);
+
+	return $urlCatalogue;
+}
+
+?>

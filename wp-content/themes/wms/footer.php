@@ -1,6 +1,6 @@
-    <footer class="site-footer">
-      <?php bloginfo('name'); ?> est propulsé par <a href="http://wordpress.org">WordPress</a>.
-    </footer>
+
+    <script src="<?php echo get_template_directory_uri() ?>/assets/js/jquery.js" charset="utf-8"></script>
+    <script src="<?php echo get_template_directory_uri() ?>/assets/js/app.js" charset="utf-8"></script>
     <?php wp_footer(); ?>
   </body>
 </html>

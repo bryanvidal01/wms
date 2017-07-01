@@ -1,0 +1,50 @@
+.pre-header{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 8px;
+    font-weight: 700;
+    background: #000;
+    color: #fff;
+}
+
+.header{
+    background: #181818;
+    padding: 20px;
+    .logo{
+        width: 100px;
+        height: 30px;
+        float: left;
+        svg{
+            width: 100%;
+            height: auto;
+            fill: #FFF;
+            height: 30px;
+        }
+
+    }
+    .logo-wording{
+        float: left;
+        color: #FFF;
+        width: 10px;
+        font-size: 10px;
+        line-height: 10px;
+        margin-left: 5px;
+        font-weight: 100;
+        text-transform: uppercase;
+
+    }
+
+    .nav-principal{
+        line-height: 25px;
+        li{
+            display: inline-block;
+            line-height: 18px;
+            margin: 0 10px;
+            a{
+                font-size: 12px;
+                color: #fff;
+            }
+        }
+    }
+}
