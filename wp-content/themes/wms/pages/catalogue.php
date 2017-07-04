@@ -11,7 +11,7 @@
         $contrat = 'location';
     endif;
 
-    if($_GET['filter_home']):
+    if($_GET['filter_home']  && ($_GET['sale']!='' or $_GET['gamme']!='' or $_GET['carburant']!='')):
         $gamme = $_GET['gamme'];
         $carburant = $_GET['carburant'];
 
@@ -20,7 +20,7 @@
             'order' => 'DESC',
             'post_type' => 'vehicule',
             'tax_query' => array(
-        		'relation' => 'AND',
+        		'relation' => 'OR',
         		array(
         			'taxonomy' => 'contrat',
         			'field'    => 'slug',
@@ -30,6 +30,11 @@
         			'taxonomy' => 'gamme',
         			'field'    => 'slug',
         			'terms'    => array( $gamme ),
+        		),
+        		array(
+        			'taxonomy' => 'carburant',
+        			'field'    => 'slug',
+        			'terms'    => array( $carburant ),
         		),
         	),
         );
@@ -129,7 +134,7 @@
                             <ul class="child-filter">
                                 <?php foreach ($carburants as  $carburant): ?>
                                     <li>
-                                        <input type="checkbox" id="<?php echo $carburant->slug; ?>" name="carburant[]" value="<?php echo $carburant->slug; ?>" <?php if(($_GET['carburant']) && (in_array($carburant->slug, $_GET['carburant']))):?>checked<?php endif;?>>
+                                        <input type="checkbox" id="<?php echo $carburant->slug; ?>" name="carburant[]" value="<?php echo $carburant->slug; ?>" <?php if(($_GET['carburant']) && (isset($_GET['filter'])) && (in_array($carburant->slug, $_GET['carburant']))):?>checked<?php endif;?>>
                                         <label class="text-checkbox" for="<?php echo $carburant->slug; ?>"><?php echo $carburant->name; ?></label>
                                     </li>
                                 <?php endforeach;?>
@@ -142,7 +147,7 @@
                             <ul class="child-filter">
                                 <?php foreach ($gammes as  $gamme): ?>
                                     <li>
-                                        <input type="checkbox" id="<?php echo $gamme->slug; ?>" name="gamme[]" value="<?php echo $gamme->slug; ?>" <?php if(($_GET['gamme']) && (in_array($gamme->slug, $_GET['gamme']))):?>checked<?php endif;?>>
+                                        <input type="checkbox" id="<?php echo $gamme->slug; ?>" name="gamme[]" value="<?php echo $gamme->slug; ?>" <?php if(($_GET['gamme']) && (isset($_GET['filter'])) && (in_array($gamme->slug, $_GET['gamme']))):?>checked<?php endif;?>>
                                         <label for="<?php echo $gamme->slug; ?>" class="text-checkbox"><?php echo $gamme->name; ?></label>
                                     </li>
                                 <?php endforeach;?>
@@ -155,7 +160,7 @@
                             <ul class="child-filter">
                                 <?php foreach ($marques as  $marque): ?>
                                     <li>
-                                        <input type="checkbox" id="<?php echo $marque->slug; ?>" name="marque[]" value="<?php echo $marque->slug; ?>" <?php if(($_GET['marque']) && (in_array($marque->slug, $_GET['marque']))):?>checked<?php endif;?>>
+                                        <input type="checkbox" id="<?php echo $marque->slug; ?>" name="marque[]" value="<?php echo $marque->slug; ?>" <?php if(($_GET['marque']) && (isset($_GET['filter'])) && (in_array($marque->slug, $_GET['marque']))):?>checked<?php endif;?>>
                                         <label for="<?php echo $marque->slug; ?>" class="text-checkbox"><?php echo $marque->name; ?></label>
                                     </li>
                                 <?php endforeach;?>

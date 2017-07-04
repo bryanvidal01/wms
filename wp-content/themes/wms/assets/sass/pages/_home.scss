@@ -47,7 +47,7 @@
 
 .last-vehicules{
     position: relative;
-
+    padding-bottom: 30px;
     &:after{
         content: '';
         width: 100%;
@@ -56,5 +56,86 @@
         position: absolute;
         left: 0;
         bottom: 0;
+    }
+}
+
+.temoignage{
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 50px 0;
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(#000, .8);
+    }
+
+    .title-site{
+        margin-top: 0;
+    }
+
+    .content{
+        position: relative;
+        z-index: 3;
+
+        .list-interview{
+            margin-top: 20px;
+            color: #FFF;
+
+            .avatar{
+                border-radius: 50%;
+                overflow: hidden;
+                display: inline-block;
+
+                img{
+                    display: block;
+                }
+            }
+            .name{
+                margin-top: 15px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 17px;
+                margin-bottom: 15px;
+            }
+            .text-interview{
+                position: relative;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 0 20px;
+                font-size: 14px;
+                font-weight: 100;
+                line-height: 20px;
+                opacity: .8;
+                margin-bottom: 20px;
+
+                &:before{
+                    content: "’’";
+                    position: absolute;
+                    font-size: 60px;
+                    right: 0;
+                    font-weight: 800;
+                    opacity: .3;
+                    font-family: 'time';
+                }
+                &:after{
+                    content: "’’";
+                    position: absolute;
+                    font-size: 60px;
+                    margin-top: 0px;
+                    margin-left: 10px;
+                    font-weight: 800;
+                    bottom: 0;
+                    left: 0;
+                    opacity: .3;
+                    font-family: 'time';
+                    @include rotate(180deg);
+                }
+            }
+        }
     }
 }

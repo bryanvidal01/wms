@@ -35,7 +35,6 @@
                         <div class="container-inputs">
                             <?php if($contrats): ?>
                                 <select name="sale">
-                                    <option value="">Achat / Vente</option>
                                     <?php foreach ($contrats as $contrat): ?>
                                             <option value="<?php echo $contrat->slug; ?>"><?php echo $contrat->name; ?></option>
                                     <?php endforeach; ?>
@@ -44,7 +43,6 @@
 
                             <?php if($gammes): ?>
                                 <select name="gamme">
-                                    <option value="">Gamme</option>
                                     <?php foreach ($gammes as $gamme) :?>
                                         <option value="<?php echo $gamme->slug; ?>"><?php echo $gamme->name; ?></option>
                                     <?php endforeach; ?>
@@ -52,7 +50,6 @@
                             <?php endif; ?>
                             <?php if($carburants): ?>
                                 <select class="" name="carburant">
-                                    <option value="">Carburant</option>
                                     <?php foreach ($carburants as $carburant) :?>
                                         <option value="<?php echo $carburant->slug; ?>"><?php echo $carburant->name; ?></option>
                                     <?php endforeach; ?>
@@ -79,115 +76,83 @@
                         Nos derniers véhicules
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                    <a href="#" class="article-vehicule">
-                        <div class="img-vehicule">
-                            <img src="http://fakeimg.pl/500x300/">
-                        </div>
-                        <div class="category">
-                            4x4
-                        </div>
-                        <div class="title-vehicule">
-                            Mercedes Benz M Class
-                        </div>
-                        <div class="price">
-                            125€ / J
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="temoignage">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <div class="list-interview">
+                <?php $args = array(
+                    'posts_per_page' => 6,
+                    'order' => 'DESC',
+                    'post_type' => 'vehicule'
+                );
 
+                $query = new WP_Query($args);
+                ?>
+                <?php if($query->have_posts()) : while ($query->have_posts() ) : $query->the_post();
+                $postID    = get_the_id();
+                $postTerms = get_the_terms($postID, 'gamme');
+                $imgId     = get_field('car_img');
+                $urlImg    = wp_get_attachment_image_src($imgId, '1900x900');
+                ?>
+                <div class="col-sm-4 item-catalogue">
+                    <div class="article-vehicule">
+                        <a href="<?php echo get_the_permalink(); ?>" class="img-vehicule">
+                            <img src="<?php echo $urlImg[0]; ?>">
+                        </a>
+                        <ul class="category">
+                            <?php foreach ($postTerms as $postTerm):?>
+                                <li>
+                                    <a href="<?php echo get_term_link($postTerm->term_id) ?>">
+                                        <?php echo $postTerm->name; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <div class="title-vehicule">
+                            <?php echo get_the_title(); ?>
+                        </div>
+                        <div class="price">
+                            125€ / J
+                        </div>
                     </div>
                 </div>
+                <?php endwhile; endif;
+                wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
+
+
+    <?php $args = array(
+        'posts_per_page' => -1,
+        'order' => 'desc',
+        'orderby'=>'rand',
+        'post_type' => 'avis'
+    );
+
+    $query = new WP_Query($args);
+    ?>
+    <?php if($query->have_posts()) :?>
+    <div class="temoignage" style="background-image: url('http://68.media.tumblr.com/f26b1173f49242ce90b9b4c8723024c0/tumblr_oexxatQgZd1tomxvuo8_1280.jpg')">
+        <div class="text-center">
+            <div class="content">
+                <div class="title-site white">
+                    Ils nous ont fait confiance
+                </div>
+                <div class="list-interview owl-carousel owl-theme  slider-bullets">
+                    <?php while ($query->have_posts() ) : $query->the_post(); ?>
+                        <div class="item">
+                            <div class="avatar">
+                                <img src="http://fakeimg.pl/90x90/" alt="">
+                            </div>
+                            <div class="name">
+                                <?php echo get_the_title(); ?>
+                            </div>
+                            <div class="text-interview">
+                                <?php echo get_the_content(); ?>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; wp_reset_postdata(); ?>
 <?php get_footer(); ?>

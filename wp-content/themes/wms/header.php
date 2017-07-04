@@ -4,6 +4,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title( '|', true, 'right' ); ?></title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/stylesheets/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/stylesheets/style.css">
     <?php wp_head(); ?>
   </head>

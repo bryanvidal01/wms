@@ -8968,9 +8968,13 @@ select {
   text-align: center;
   margin: 40px 0;
 }
+/* line 160, ../sass/_global.scss */
+.title-site.white {
+  color: #FFF;
+}
 
 /* Cachons la case à cocher */
-/* line 165, ../sass/_global.scss */
+/* line 169, ../sass/_global.scss */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
@@ -8978,7 +8982,7 @@ select {
 }
 
 /* on prépare le label */
-/* line 172, ../sass/_global.scss */
+/* line 176, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
@@ -8991,7 +8995,7 @@ select {
 
 /* Aspect des checkboxes */
 /* :before sert à créer la case à cocher */
-/* line 180, ../sass/_global.scss */
+/* line 184, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   content: '';
@@ -9008,7 +9012,7 @@ select {
 }
 
 /* Aspect général de la coche */
-/* line 192, ../sass/_global.scss */
+/* line 196, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '';
@@ -9025,7 +9029,7 @@ select {
 }
 
 /* Aspect si "pas cochée" */
-/* line 205, ../sass/_global.scss */
+/* line 209, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   /* coche invisible */
@@ -9034,7 +9038,7 @@ select {
 }
 
 /* Aspect si "cochée" */
-/* line 210, ../sass/_global.scss */
+/* line 214, ../sass/_global.scss */
 [type="checkbox"]:checked + label:after {
   opacity: 1;
   /* coche opaque */
@@ -9149,6 +9153,7 @@ select {
 /* line 48, ../sass/pages/_home.scss */
 .last-vehicules {
   position: relative;
+  padding-bottom: 30px;
 }
 /* line 51, ../sass/pages/_home.scss */
 .last-vehicules:after {
@@ -9161,12 +9166,101 @@ select {
   bottom: 0;
 }
 
+/* line 62, ../sass/pages/_home.scss */
+.temoignage {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 50px 0;
+}
+/* line 67, ../sass/pages/_home.scss */
+.temoignage:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+/* line 77, ../sass/pages/_home.scss */
+.temoignage .title-site {
+  margin-top: 0;
+}
+/* line 81, ../sass/pages/_home.scss */
+.temoignage .content {
+  position: relative;
+  z-index: 3;
+}
+/* line 85, ../sass/pages/_home.scss */
+.temoignage .content .list-interview {
+  margin-top: 20px;
+  color: #FFF;
+}
+/* line 89, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+/* line 94, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .avatar img {
+  display: block;
+}
+/* line 98, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .name {
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+/* line 105, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .text-interview {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  opacity: .8;
+  margin-bottom: 20px;
+}
+/* line 116, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .text-interview:before {
+  content: "’’";
+  position: absolute;
+  font-size: 60px;
+  right: 0;
+  font-weight: 800;
+  opacity: .3;
+  font-family: 'time';
+}
+/* line 125, ../sass/pages/_home.scss */
+.temoignage .content .list-interview .text-interview:after {
+  content: "’’";
+  position: absolute;
+  font-size: 60px;
+  margin-top: 0px;
+  margin-left: 10px;
+  font-weight: 800;
+  bottom: 0;
+  left: 0;
+  opacity: .3;
+  font-family: 'time';
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 /* line 1, ../sass/pages/_catalogue.scss */
 .item-catalogue {
   display: inline-block;
   vertical-align: top;
   float: none;
-  width: 30%;
+  width: 33%;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -9175,14 +9269,18 @@ select {
 .container-catalogue {
   margin-top: 60px;
 }
-/* line 14, ../sass/pages/_catalogue.scss */
+/* line 13, ../sass/pages/_catalogue.scss */
+.container-catalogue .filter_catalog_view {
+  margin-bottom: 60px;
+}
+/* line 18, ../sass/pages/_catalogue.scss */
 .container-catalogue .filter .title-site {
   text-align: left;
   margin-top: 0;
   margin-bottom: 30px;
   letter-spacing: -.05em;
 }
-/* line 22, ../sass/pages/_catalogue.scss */
+/* line 26, ../sass/pages/_catalogue.scss */
 .container-catalogue .title-filter {
   font-weight: 700;
   margin-bottom: 5px;
@@ -9190,19 +9288,19 @@ select {
   margin-top: 20px;
   margin-bottom: 10px;
 }
-/* line 30, ../sass/pages/_catalogue.scss */
+/* line 34, ../sass/pages/_catalogue.scss */
 .container-catalogue .text-checkbox {
   font-size: 14px;
   color: #777;
   font-weight: 100;
 }
-/* line 37, ../sass/pages/_catalogue.scss */
+/* line 41, ../sass/pages/_catalogue.scss */
 .container-catalogue .child-filter li {
   margin: 5px 0;
   display: block;
 }
 
-/* line 45, ../sass/pages/_catalogue.scss */
+/* line 49, ../sass/pages/_catalogue.scss */
 .header-catalogue {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -9210,7 +9308,7 @@ select {
   background-position: center;
   position: relative;
 }
-/* line 52, ../sass/pages/_catalogue.scss */
+/* line 56, ../sass/pages/_catalogue.scss */
 .header-catalogue:after {
   content: '';
   position: absolute;
@@ -9220,7 +9318,7 @@ select {
   width: 100%;
   height: 100%;
 }
-/* line 62, ../sass/pages/_catalogue.scss */
+/* line 66, ../sass/pages/_catalogue.scss */
 .header-catalogue .text-catalogue {
   text-transform: uppercase;
   color: #FFF;
@@ -9230,9 +9328,302 @@ select {
   font-weight: 100;
   letter-spacing: -.08em;
 }
-/* line 71, ../sass/pages/_catalogue.scss */
+/* line 75, ../sass/pages/_catalogue.scss */
 .header-catalogue .text-catalogue .catalogue-name {
   font-size: 30px;
   font-weight: 700;
   margin-top: 3px;
+}
+
+/**
+ * Owl Carousel v2.2.1
+ * Copyright 2013-2017 David Deutsch
+ * Licensed under  ()
+ */
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel, .owl-carousel .owl-item {
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  z-index: 1;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+  -moz-backface-visibility: hidden;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-item, .owl-carousel .owl-wrapper {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-item {
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+  display: none;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.no-js .owl-carousel, .owl-carousel.owl-loaded {
+  display: block;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-dot, .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
+  cursor: pointer;
+  cursor: hand;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-drag .owl-item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: grab;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-height {
+  transition: height .5s ease-in-out;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-item img.owl-lazy {
+  transform-style: preserve-3d;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url(owl.video.play.png) no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform .1s ease;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3);
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-playing .owl-video-play-icon, .owl-carousel .owl-video-playing .owl-video-tn {
+  display: none;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity .4s ease;
+}
+
+/* line 6, ../sass/plugin/_owl.carousel.scss */
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Owl Carousel v2.2.1
+ * Copyright 2013-2017 David Deutsch
+ * Licensed under  ()
+ */
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-dots, .owl-theme .owl-nav {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-nav {
+  margin-top: 10px;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-nav [class*=owl-] {
+  color: #FFF;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: #D6D6D6;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: #869791;
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-nav .disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 10px;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #D6D6D6;
+  display: block;
+  -webkit-backface-visibility: visible;
+  transition: opacity .2s ease;
+  border-radius: 30px;
+}
+
+/* line 6, ../sass/plugin/_owl.theme.default.scss */
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #869791;
 }

@@ -16,6 +16,16 @@ function create_post_type() {
       'public' => true
     )
   );
+
+  register_post_type( 'Avis',
+    array(
+      'labels' => array(
+        'name' => __( 'Avis' ),
+        'singular_name' => __( 'Avis' )
+      ),
+      'public' => true
+    )
+  );
 }
 
 // CUSTOM TAXONOMY
