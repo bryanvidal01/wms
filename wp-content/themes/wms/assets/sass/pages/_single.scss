@@ -1,0 +1,50 @@
+.header-single{
+    padding: 120px 0;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+
+    &:before{
+        content:'';
+        width: 100%;
+        height: 100%;
+        background: rgba(#000, .8);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .category{
+        li{
+            display: inline-block;
+            font-weight: 300;
+            color: #FFF;
+            &:before{
+                content: '/';
+                color: #FFF;
+                margin: 0 5px;
+            }
+
+            &:first-child{
+                &:before{
+                    display: none;
+                }
+            }
+            a{
+            }
+        }
+    }
+
+    .title-single{
+        position: relative;
+        z-index: 3;
+        .title{
+            color: #FFF;
+            font-size: 35px;
+            margin-top: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    }
+}
