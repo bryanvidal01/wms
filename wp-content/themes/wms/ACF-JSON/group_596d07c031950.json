@@ -50,7 +50,7 @@
         {
             "key": "field_596d081f2b756",
             "label": "Prix du v\u00e9hicule",
-            "name": "prix_du_vehicule",
+            "name": "price_vehicule",
             "prefix": "",
             "type": "number",
             "instructions": "",
@@ -87,5 +87,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1500317775
+    "modified": 1500406594
 }

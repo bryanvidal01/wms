@@ -8886,15 +8886,28 @@ select {
   width: 100%;
   font-size: 14px;
   font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+}
+/* line 90, ../sass/_global.scss */
+.button.black {
+  color: #FFF;
+  background: #222;
+  border: 2px solid #222;
+}
+/* line 95, ../sass/_global.scss */
+.button.border {
+  border: 2px solid #222;
+  color: #222;
 }
 
-/* line 90, ../sass/_global.scss */
+/* line 101, ../sass/_global.scss */
 .button-green {
   background: #006d6f;
   border: 0;
 }
 
-/* line 95, ../sass/_global.scss */
+/* line 106, ../sass/_global.scss */
 .article-vehicule {
   text-align: center;
   margin-bottom: 30px;
@@ -8907,15 +8920,15 @@ select {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-/* line 104, ../sass/_global.scss */
+/* line 115, ../sass/_global.scss */
 .article-vehicule:hover {
   box-shadow: 0 5px 55px #DDD;
 }
-/* line 108, ../sass/_global.scss */
+/* line 119, ../sass/_global.scss */
 .article-vehicule .img-vehicule img {
   width: 100%;
 }
-/* line 113, ../sass/_global.scss */
+/* line 124, ../sass/_global.scss */
 .article-vehicule .category {
   font-size: 13px;
   color: #888;
@@ -8923,30 +8936,30 @@ select {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-/* line 119, ../sass/_global.scss */
+/* line 130, ../sass/_global.scss */
 .article-vehicule .category li {
   display: inline-block;
 }
-/* line 121, ../sass/_global.scss */
+/* line 132, ../sass/_global.scss */
 .article-vehicule .category li:after {
   content: '/';
 }
-/* line 126, ../sass/_global.scss */
+/* line 137, ../sass/_global.scss */
 .article-vehicule .category li:last-child:after {
   content: '';
 }
-/* line 130, ../sass/_global.scss */
+/* line 141, ../sass/_global.scss */
 .article-vehicule .category li a {
   color: #888;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-/* line 133, ../sass/_global.scss */
+/* line 144, ../sass/_global.scss */
 .article-vehicule .category li a:hover {
   color: #444;
 }
-/* line 140, ../sass/_global.scss */
+/* line 151, ../sass/_global.scss */
 .article-vehicule .title-vehicule {
   text-transform: uppercase;
   font-weight: 700;
@@ -8954,13 +8967,13 @@ select {
   margin-bottom: 8px;
   color: #222;
 }
-/* line 147, ../sass/_global.scss */
+/* line 158, ../sass/_global.scss */
 .article-vehicule .price {
   font-size: 14px;
   color: #444;
 }
 
-/* line 153, ../sass/_global.scss */
+/* line 164, ../sass/_global.scss */
 .title-site {
   font-size: 18px;
   text-transform: uppercase;
@@ -8968,13 +8981,13 @@ select {
   text-align: center;
   margin: 40px 0;
 }
-/* line 160, ../sass/_global.scss */
+/* line 171, ../sass/_global.scss */
 .title-site.white {
   color: #FFF;
 }
 
 /* Cachons la case à cocher */
-/* line 169, ../sass/_global.scss */
+/* line 180, ../sass/_global.scss */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
@@ -8982,7 +8995,7 @@ select {
 }
 
 /* on prépare le label */
-/* line 176, ../sass/_global.scss */
+/* line 187, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
@@ -8995,7 +9008,7 @@ select {
 
 /* Aspect des checkboxes */
 /* :before sert à créer la case à cocher */
-/* line 184, ../sass/_global.scss */
+/* line 195, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   content: '';
@@ -9012,7 +9025,7 @@ select {
 }
 
 /* Aspect général de la coche */
-/* line 196, ../sass/_global.scss */
+/* line 207, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '';
@@ -9029,7 +9042,7 @@ select {
 }
 
 /* Aspect si "pas cochée" */
-/* line 209, ../sass/_global.scss */
+/* line 220, ../sass/_global.scss */
 [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   /* coche invisible */
@@ -9038,7 +9051,7 @@ select {
 }
 
 /* Aspect si "cochée" */
-/* line 214, ../sass/_global.scss */
+/* line 225, ../sass/_global.scss */
 [type="checkbox"]:checked + label:after {
   opacity: 1;
   /* coche opaque */
@@ -9381,6 +9394,46 @@ select {
   margin-top: 10px;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+/* line 52, ../sass/pages/_single.scss */
+.galerie-car {
+  margin-top: -50px;
+}
+/* line 55, ../sass/pages/_single.scss */
+.galerie-car .img-full img {
+  width: 100%;
+}
+
+/* line 61, ../sass/pages/_single.scss */
+.info-vehicule {
+  margin-top: 30px;
+  padding: 20px;
+}
+/* line 66, ../sass/pages/_single.scss */
+.info-vehicule .description {
+  font-size: 16px;
+  line-height: 22px;
+}
+/* line 71, ../sass/pages/_single.scss */
+.info-vehicule .price {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+/* line 77, ../sass/pages/_single.scss */
+.info-vehicule .call-to-action {
+  margin-top: 25px;
+}
+/* line 80, ../sass/pages/_single.scss */
+.info-vehicule .button {
+  display: inline-block;
+  width: 40%;
+}
+
+/* line 86, ../sass/pages/_single.scss */
+.related-product {
+  margin-top: 30px;
 }
 
 /**
