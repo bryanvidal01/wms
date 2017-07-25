@@ -17,7 +17,7 @@ if((isset($_POST['send'])) && ($_POST['first_name'] != '') && ($_POST['second_na
         <p>Voici les informations du client</p>
         <ul>
             <li>Nom : ". $secondName ."</li>
-            <li>Prénom : ". $secondName ."</li>
+            <li>Prénom : ". $firstName ."</li>
             <li>Email : ". $email ."</li>
             <li>Téléphone : ". $phone ."</li>
         </ul>
