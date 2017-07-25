@@ -9404,36 +9404,63 @@ select {
 .galerie-car .img-full img {
   width: 100%;
 }
+/* line 60, ../sass/pages/_single.scss */
+.galerie-car .container-thumb {
+  width: calc(100% + 15px);
+  margin-left: -5px;
+}
+/* line 64, ../sass/pages/_single.scss */
+.galerie-car .image-item {
+  width: calc(33% - 10px);
+  margin: 0 5px;
+  margin-top: 10px;
+  display: block;
+  float: left;
+}
+/* line 70, ../sass/pages/_single.scss */
+.galerie-car .image-item img {
+  width: 100%;
+}
 
-/* line 61, ../sass/pages/_single.scss */
+/* line 76, ../sass/pages/_single.scss */
 .info-vehicule {
   margin-top: 30px;
   padding: 20px;
 }
-/* line 66, ../sass/pages/_single.scss */
+/* line 81, ../sass/pages/_single.scss */
 .info-vehicule .description {
   font-size: 16px;
   line-height: 22px;
 }
-/* line 71, ../sass/pages/_single.scss */
+/* line 86, ../sass/pages/_single.scss */
 .info-vehicule .price {
   margin-top: 20px;
   font-size: 30px;
   font-weight: 700;
 }
-/* line 77, ../sass/pages/_single.scss */
+/* line 92, ../sass/pages/_single.scss */
 .info-vehicule .call-to-action {
   margin-top: 25px;
 }
-/* line 80, ../sass/pages/_single.scss */
+/* line 95, ../sass/pages/_single.scss */
 .info-vehicule .button {
   display: inline-block;
   width: 40%;
 }
 
-/* line 86, ../sass/pages/_single.scss */
+/* line 101, ../sass/pages/_single.scss */
 .related-product {
   margin-top: 30px;
+  position: relative;
+}
+/* line 104, ../sass/pages/_single.scss */
+.related-product:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
 }
 
 /**
@@ -9727,4 +9754,243 @@ select {
 /* line 6, ../sass/plugin/_owl.theme.default.scss */
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #869791;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-loader, .lightbox {
+  text-align: center;
+  line-height: 0;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+body:after {
+  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+  display: none;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-dataContainer:after, .lb-outerContainer:after {
+  content: "";
+  clear: both;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+body.lb-disable-scrolling {
+  overflow: hidden;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: #000;
+  filter: alpha(Opacity=80);
+  opacity: .8;
+  display: none;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  font-weight: 400;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  max-height: none;
+  border-radius: 3px;
+  border: 4px solid #fff;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lightbox a img {
+  border: none;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-outerContainer {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-loader, .lb-nav {
+  position: absolute;
+  left: 0;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-outerContainer:after {
+  display: table;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-loader {
+  top: 43%;
+  height: 25%;
+  width: 100%;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-cancel {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background: url(../images/loading.gif) no-repeat;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-container > .nav {
+  left: 0;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav a {
+  outline: 0;
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==);
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-next, .lb-prev {
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav a.lb-prev {
+  width: 34%;
+  left: 0;
+  float: left;
+  background: url(../images/prev.png) left 48% no-repeat;
+  filter: alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity .6s;
+  -moz-transition: opacity .6s;
+  -o-transition: opacity .6s;
+  transition: opacity .6s;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav a.lb-prev:hover {
+  filter: alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav a.lb-next {
+  width: 64%;
+  right: 0;
+  float: right;
+  background: url(../images/next.png) right 48% no-repeat;
+  filter: alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity .6s;
+  -moz-transition: opacity .6s;
+  -o-transition: opacity .6s;
+  transition: opacity .6s;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-nav a.lb-next:hover {
+  filter: alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-dataContainer:after {
+  display: table;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data {
+  padding: 0 4px;
+  color: #ccc;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-caption a {
+  color: #4ae;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 12px;
+  color: #999;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-close {
+  display: block;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url(../images/close.png) top right no-repeat;
+  text-align: right;
+  outline: 0;
+  filter: alpha(Opacity=70);
+  opacity: .7;
+  -webkit-transition: opacity .2s;
+  -moz-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+/* line 1, ../sass/plugin/_lightbox.scss */
+.lb-data .lb-close:hover {
+  cursor: pointer;
+  filter: alpha(Opacity=100);
+  opacity: 1;
 }

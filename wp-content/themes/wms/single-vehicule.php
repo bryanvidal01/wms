@@ -2,12 +2,34 @@
 get_header();
 the_post();
 
+
+// If send mail
+if((isset($_POST['send'])) && ($_POST['first_name'] != '') && ($_POST['second_name'] != '') && ($_POST['second_name'] != '') && ($_POST['phone'])):
+    $idPost = get_the_id();
+    $firstName = $_POST['first_name'];
+    $secondName = $_POST['second_name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+
+    $mailHtml = "
+        <h2>Bonjour vous avez recu un message trop cool !</h2>
+    ";
+
+    wp_mail("bryan.vidal@hetic.net", "Achat véhicule WMS", $mailHtml, $headers = '', $attachments = array());
+
+else:
+    $error = "Tous les champs sont obligatoires";
+endif;
+
+
 $postID    = get_the_id();
 $postTerms = get_the_terms($postID, 'gamme');
 $idImage   = get_field('image_bg_product', 'option');
 $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
 
 ?>
+
+<?php echo $error; ?>
 <div class="header-single" style="background-image: url('<?php echo $urlImg[0]; ?>')">
     <div class="title-single">
         <ul class="category">
@@ -32,7 +54,27 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
 
             <div class="galerie-car">
                 <div class="img-full">
-                    <img src="<?php echo $urlImg[0]; ?>" alt="">
+                    <a href="<?php echo $urlImg[0]; ?>" data-lightbox="car">
+                        <img src="<?php echo $urlImg[0]; ?>" alt="">
+                    </a>
+                </div>
+                <div class="container-thumb clearfix">
+                    <?php
+                    $galerie = get_field('images_vehicule');
+                    foreach ($galerie as  $image) {
+                        $imageID = $image['ID'];
+                        $urlImage = wp_get_attachment_image_src($imageID, '600x600');
+                        ?>
+
+                        <div class="image-item">
+                            <a href="<?php echo  $urlImage[0]; ?>" data-lightbox="car">
+                                <img src="<?php echo  $urlImage[0]; ?>" alt="">
+                            </a>
+                        </div>
+
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -103,7 +145,7 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
                     <?php echo get_the_title(); ?>
                 </div>
                 <div class="price">
-                    125€ / J
+                    <?php echo get_field('price_vehicule');?>€
                 </div>
             </div>
         </div>
@@ -111,5 +153,15 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
         wp_reset_postdata(); ?>
     </div>
 </div>
+
+<form class="form-achat" action="#" method="POST">
+    <input type="hidden" name="id_vehicule" value="<?php echo get_the_id(); ?>">
+    <input type="text" name="first_name" placeholder="Votre Prénom">
+    <input type="text" name="second_name" placeholder="Votre Nom de Famille">
+    <input type="text" name="email" placeholder="Votre Email">
+    <input type="text" name="phone" placeholder="Votre numero de téléphone">
+    <input type="hidden" name="send" value="1">
+    <input type="submit" value="envoyer">
+</form>
 
 <?php get_footer(); ?>

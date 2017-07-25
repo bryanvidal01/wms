@@ -4,6 +4,11 @@ jQuery(document).ready(function(){
         jQuery('.filter_catalog_view').submit();
     })
 
+    // lightbox
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
 
     // Slider
     jQuery('.slider-bullets').owlCarousel({
