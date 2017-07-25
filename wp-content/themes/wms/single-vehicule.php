@@ -12,17 +12,17 @@ if((isset($_POST['send'])) && ($_POST['first_name'] != '') && ($_POST['second_na
     $phone = $_POST['phone'];
 
     $mailHtml = "
-        <h2>". echo $firstName ." souhaite acheter un de vos véhicules</h2>
+        <h2>". $firstName ." souhaite acheter un de vos véhicules</h2>
         <p>Bonjour. Vous avez reçu une demande d'achat de véhicule sur www.webmotorservice.com</p>
         <p>Voici les informations du client</p>
         <ul>
-            <li>Nom : ". echo $secondName ."</li>
-            <li>Prénom : ". echo $secondName ."</li>
-            <li>Email : ". echo $email ."</li>
-            <li>Téléphone : ". echo $phone ."</li>
+            <li>Nom : ". $secondName ."</li>
+            <li>Prénom : ". $secondName ."</li>
+            <li>Email : ". $email ."</li>
+            <li>Téléphone : ". $phone ."</li>
         </ul>
-        <p>Le véhicule demandé est : <strong>". echo get_the_title() ."</strong></p>
-        <p>Lien de l'annonce : <strong>". echo get_the_permalink($idPost) ."</strong></p>
+        <p>Le véhicule demandé est : <strong>". get_the_title() ."</strong></p>
+        <p>Lien de l'annonce : <strong>". get_the_permalink($idPost) ."</strong></p>
     ";
 
     wp_mail("bryan.vidal@hetic.net", "Achat véhicule WMS", $mailHtml, $headers = 'Content-Type: text/html; charset=UTF-8', $attachments = array());
