@@ -15,7 +15,7 @@ if((isset($_POST['send'])) && ($_POST['first_name'] != '') && ($_POST['second_na
         <h2>Bonjour vous avez recu un message trop cool !</h2>
     ";
 
-    wp_mail("bryan.vidal@hetic.net", "Achat véhicule WMS", $mailHtml, $headers = '', $attachments = array());
+    wp_mail("bryan.vidal@hetic.net", "Achat véhicule WMS", $mailHtml, $headers = 'Content-Type: text/html; charset=UTF-8', $attachments = array());
 
 else:
     $error = "Tous les champs sont obligatoires";
