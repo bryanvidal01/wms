@@ -38,8 +38,6 @@ $idImage   = get_field('image_bg_product', 'option');
 $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
 
 ?>
-
-<?php echo $error; ?>
 <div class="header-single" style="background-image: url('<?php echo $urlImg[0]; ?>')">
     <div class="title-single">
         <ul class="category">
@@ -71,18 +69,21 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
                 <div class="container-thumb clearfix">
                     <?php
                     $galerie = get_field('images_vehicule');
-                    foreach ($galerie as  $image) {
-                        $imageID = $image['ID'];
-                        $urlImage = wp_get_attachment_image_src($imageID, '600x600');
-                        ?>
 
-                        <div class="image-item">
-                            <a href="<?php echo  $urlImage[0]; ?>" data-lightbox="car">
-                                <img src="<?php echo  $urlImage[0]; ?>" alt="">
-                            </a>
-                        </div>
+                    if($galerie){
+                        foreach ($galerie as  $image) {
+                            $imageID = $image['ID'];
+                            $urlImage = wp_get_attachment_image_src($imageID, '600x600');
+                            ?>
 
-                        <?php
+                            <div class="image-item">
+                                <a href="<?php echo  $urlImage[0]; ?>" data-lightbox="car">
+                                    <img src="<?php echo  $urlImage[0]; ?>" alt="">
+                                </a>
+                            </div>
+
+                            <?php
+                        }
                     }
                     ?>
                 </div>
@@ -97,10 +98,10 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
                     <?php echo get_field('price_vehicule');?>€
                 </div>
                 <div class="call-to-action">
-                    <a href="#" class="button black">
+                    <a href="#" class="button black info-popin">
                         Acheter le véhicule
                     </a>
-                    <a href="#" class="button border">
+                    <a href="#" class="button border info-popin">
                         Plus d'informations
                     </a>
                 </div>
@@ -164,14 +165,28 @@ $urlImg    = wp_get_attachment_image_src($idImage, '1900x900');
     </div>
 </div>
 
-<form class="form-achat" action="#" method="POST">
-    <input type="hidden" name="id_vehicule" value="<?php echo get_the_id(); ?>">
-    <input type="text" name="first_name" placeholder="Votre Prénom">
-    <input type="text" name="second_name" placeholder="Votre Nom de Famille">
-    <input type="text" name="email" placeholder="Votre Email">
-    <input type="text" name="phone" placeholder="Votre numero de téléphone">
-    <input type="hidden" name="send" value="1">
-    <input type="submit" value="envoyer">
-</form>
+<div class="popin-reservation">
+    <div class="container-form">
+        <div class="close-button">
+            X
+        </div>
+        <div class="title-site">
+            <?php echo get_the_title(); ?>
+        </div>
+        <p class="intro-form">Remplissez ce formulaire pour avoir plus d'informations sur le véhicule.</p>
+        <form class="form-achat" action="#" method="POST">
+            <div class="error">
+                
+            </div>
+            <input type="hidden" name="id_vehicule" value="<?php echo get_the_id(); ?>">
+            <input type="text" name="first_name" placeholder="Votre Prénom">
+            <input type="text" name="second_name" placeholder="Votre Nom de Famille">
+            <input type="text" name="email" placeholder="Votre Email">
+            <input type="text" name="phone" placeholder="Votre Numéro de Téléphone">
+            <input type="hidden" name="send" value="1">
+            <input type="submit" class="button button-green" value="envoyer">
+        </form>
+    </div>
+</div>
 
 <?php get_footer(); ?>

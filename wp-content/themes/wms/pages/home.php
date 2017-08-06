@@ -5,11 +5,6 @@
         $idHead = get_field('img_head_search');
         $url    = wp_get_attachment_image_src($idHead, '1900x900');
 
-        $contrats = get_terms( array(
-            'taxonomy' => 'contrat',
-            'hide_empty' => false,
-        ));
-
         $gammes = get_terms( array(
             'taxonomy' => 'gamme',
             'hide_empty' => false,
@@ -23,24 +18,16 @@
     <div class="header-home-search" style="background-image: url('<?php echo $url[0] ?>')">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 text-center">
+                <div class="col-sm-10 col-sm-offset-1 text-center">
                     <form class="search-vehicule" action="<?php echo get_catalogue_link() ?>" method="get">
                         <div class="title-search">
-                            Location & Achat
+                            Achat
                             <div class="sub-title">
                                 De véhicules toutes catégories
                             </div>
                         </div>
 
                         <div class="container-inputs">
-                            <?php if($contrats): ?>
-                                <select name="sale">
-                                    <?php foreach ($contrats as $contrat): ?>
-                                            <option value="<?php echo $contrat->slug; ?>"><?php echo $contrat->name; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            <?php endif; ?>
-
                             <?php if($gammes): ?>
                                 <select name="gamme">
                                     <?php foreach ($gammes as $gamme) :?>
@@ -109,7 +96,7 @@
                             <?php echo get_the_title(); ?>
                         </div>
                         <div class="price">
-                            125€ / J
+                            <?php echo get_field('price_vehicule');?>€
                         </div>
                     </div>
                 </div>
@@ -137,10 +124,13 @@
                     Ils nous ont fait confiance
                 </div>
                 <div class="list-interview owl-carousel owl-theme  slider-bullets">
-                    <?php while ($query->have_posts() ) : $query->the_post(); ?>
+                    <?php while ($query->have_posts() ) : $query->the_post();
+                        $imageID = get_field('image');
+                        $imageURL = wp_get_attachment_image_src($imageID, '600x600');
+                    ?>
                         <div class="item">
                             <div class="avatar">
-                                <img src="http://fakeimg.pl/90x90/" alt="">
+                                <img src="<?php echo $imageURL[0] ?>" alt="">
                             </div>
                             <div class="name">
                                 <?php echo get_the_title(); ?>

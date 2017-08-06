@@ -226,3 +226,33 @@ select{
   opacity: 1; /* coche opaque */
   transform: scale(1); /* mise à l'échelle 1:1 */
 }
+
+
+
+input[type="text"],
+input[type="email"]
+input[type="password"],
+textarea{
+	padding: 13px;
+	border: 0;
+	background: #FFF;
+	font-weight: 700;
+    font-size: 14px;
+	outline: none;
+	display: block;
+	border: 1px solid #DDD;
+}
+
+textarea{
+	height: 150px;
+	resize: none;
+}
+
+
+.text-site{
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    opacity: .8;
+    margin-bottom: 20px;
+}

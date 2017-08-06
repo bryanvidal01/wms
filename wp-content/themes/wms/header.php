@@ -29,13 +29,10 @@
                   <div class="col-sm-8 text-right">
                       <ul class="nav-principal">
                           <li>
-                              <a href="<?php echo get_catalogue_link() ?>">Location de véhicule</a>
+                              <a href="<?php echo get_catalogue_link() ?>">Catalogue de véhicule</a>
                           </li>
                           <li>
-                              <a href="<?php echo get_catalogue_link() ?>?sale=achat">Achat de véhicule</a>
-                          </li>
-                          <li>
-                              <a href="#">Contact</a>
+                              <a href="<?php echo get_contact_link(); ?>">Contact</a>
                           </li>
                           <li>
                               <a href="#">FAQ</a>

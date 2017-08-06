@@ -3,7 +3,7 @@
 // Image sizes
 add_image_size( '1900x900', 1900, 900 );
 add_image_size( '500x300', 500, 300 );
-add_image_size( '600x600', 600, 600 );
+add_image_size( '600x600', 600, 600, true );
 
 // POST TYPE
 add_action( 'init', 'create_post_type' );
@@ -96,8 +96,12 @@ if( function_exists('acf_add_options_page') ) {
 function get_catalogue_link(){
 	$idCatalogue = get_field('catalogue_page', 'option');
 	$urlCatalogue = get_page_link($idCatalogue);
-
 	return $urlCatalogue;
+}
+
+function get_contact_link(){
+    $urlContact = get_field('contact_page', 'option');
+    return $urlContact;
 }
 
 ?>

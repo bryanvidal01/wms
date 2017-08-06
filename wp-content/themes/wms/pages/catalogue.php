@@ -5,27 +5,18 @@
     $idHeader = get_field('image_header');
     $urlHeader = wp_get_attachment_image_src($idHeader, '1900x900');
 
-    if($_GET['sale']):
-        $contrat = $_GET['sale'];
-    else:
-        $contrat = 'location';
-    endif;
+    $contrat = "achat";
 
     if($_GET['filter_home']  && ($_GET['sale']!='' or $_GET['gamme']!='' or $_GET['carburant']!='')):
         $gamme = $_GET['gamme'];
         $carburant = $_GET['carburant'];
 
         $args = array(
-            'posts_per_page' => 10,
+            'posts_per_page' => -1,
             'order' => 'DESC',
             'post_type' => 'vehicule',
             'tax_query' => array(
         		'relation' => 'OR',
-        		array(
-        			'taxonomy' => 'contrat',
-        			'field'    => 'slug',
-        			'terms'    => array( $contrat ),
-        		),
         		array(
         			'taxonomy' => 'gamme',
         			'field'    => 'slug',
@@ -45,7 +36,7 @@
         $marque = $_GET['marque'];
 
         $args = array(
-            'posts_per_page' => 10,
+            'posts_per_page' => -1,
             'order' => 'DESC',
             'post_type' => 'vehicule',
             'tax_query' => array(
@@ -69,17 +60,9 @@
         );
     else:
         $args = array(
-            'posts_per_page' => 10,
+            'posts_per_page' => -1,
             'order' => 'DESC',
-            'post_type' => 'vehicule',
-            'tax_query' => array(
-        		'relation' => 'AND',
-        		array(
-        			'taxonomy' => 'contrat',
-        			'field'    => 'slug',
-        			'terms'    => array( $contrat ),
-        		)
-        	),
+            'post_type' => 'vehicule'
         );
 
     endif;
@@ -197,7 +180,7 @@
                                 <?php echo get_the_title(); ?>
                             </div>
                             <div class="price">
-                                125€ / J
+                                <?php echo get_field('price_vehicule');?>€
                             </div>
                         </div>
                     </div>
